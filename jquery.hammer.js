@@ -6,6 +6,7 @@
  * @author Łukasz Lipiński (uzza17@gmail.com)
  * @version 0.1
  * @license Released under the MIT license
+ * @see https://github.com/lukaszlipinski/jquery.hammer 
  */
 
 (function($, Hammer) {
