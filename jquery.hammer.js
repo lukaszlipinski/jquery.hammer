@@ -4,9 +4,9 @@
  * Hammer.js jQuery plugin
  *
  * @author Łukasz Lipiński (uzza17@gmail.com)
- * @version 0.1
+ * @version 0.1.1
  * @license Released under the MIT license
- * @see https://github.com/lukaszlipinski/jquery.hammer 
+ * @see https://github.com/lukaszlipinski/jquery.hammer
  */
 
 (function($, Hammer) {
@@ -28,9 +28,9 @@
 						var hammer = new Hammer(el),
 							$el = $(el);
 
-						$el.data("hammer", hammer);
+						$el.data("hammer_" + event_name, hammer);
 
-						hammer['on'+ event_name] = (function($el) {
+						hammer['on' + event_name] = (function($el) {
 							return function(event) {
 								$el.trigger($.Event(event_name, event));
 							};
@@ -41,8 +41,8 @@
 				teardown: function(namespaces) {
 					var $el = $(this);
 
-					$el.data('hammer').destroy();
-					$el.removeData('hammer');
+					$el.data('hammer_' + event_name).destroy();
+					$el.removeData('hammer_'+ event_name);
 				}
 			};
 		}(event_name));
